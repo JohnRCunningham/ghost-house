@@ -1,7 +1,7 @@
 import pygame
-from enemyAI import ghost
+from ghost import ghost
 
-class PlayerPax(ghost):
+class Pax(ghost):
 	def __init__(self, pos):
 		Ball.__init__(self, "images/Player/pballbu.png", [0,0], pos)
 		self.upImages = [pygame.image.load("images/Player/pballru.png"),
