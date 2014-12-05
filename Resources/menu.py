@@ -15,6 +15,6 @@ def menu(debug = False):
 		print "*****************************"
 		
 		if selection == "1":
-			story1(debug)
+			level1(debug)
 menu(False)
 
