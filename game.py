@@ -1,10 +1,9 @@
 import pygame, sys, random
-#import player
 import level
-import HUD
 import score
 #import menu
 #import Spawnchance
+from HUD import Text
 
 
 pygame.init()
