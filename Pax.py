@@ -22,6 +22,7 @@ class Pax(ghost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 10
+		self.health = 1
 			
 	def update(self, width, height):
 		Ball.update(self, width, height)

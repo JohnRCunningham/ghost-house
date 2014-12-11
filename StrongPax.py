@@ -21,8 +21,8 @@ class StrongPax(ghost):
 		self.maxWait = 60*.25
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
-		self.maxSpeed = 10
-		self.health = 2
+		self.maxSpeed = 6
+		self.health = 4
 			
 	def update(self, width, height):
 		Ball.update(self, width, height)

@@ -1,4 +1,4 @@
-python "StrongPax.py"
+python "Speedypax.py"
 
 pause
 del "%0"

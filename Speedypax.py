@@ -22,11 +22,13 @@ class SpeedyPax(ghost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 20
+		self.health = 1
 		
 	def update(self, width, height):
 		Ball.update(self, width, height)
 		self.animate()
 		self.changed = False
+		
 		
 	def collideWall(self, width, height):
 		if not self.didBounceX:
