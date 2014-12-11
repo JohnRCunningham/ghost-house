@@ -1,4 +1,4 @@
-python "game.py"
+python "StrongPax.py"
 
 pause
 del "%0"
