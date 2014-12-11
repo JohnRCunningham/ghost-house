@@ -30,7 +30,7 @@ while True:
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_RETURN:
 					run = True
-		bgColor = 30,30,30
+		bgColor = 20,20,20
 		screen.fill(bgColor)
 		pygame.display.flip()
 		clock.tick(60)
