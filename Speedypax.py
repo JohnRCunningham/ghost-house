@@ -12,6 +12,8 @@ class SpeedyPax(ghost):
 						   pygame.image.load("speedPlayltr.png"),]
 		self.rightImages = [pygame.image.load("speedPlayrtr.png"),
 						    pygame.image.load("speedPlayrtl.png")]
+		self.sightImages = [pygame.image.load("40pxRadius.png")]
+		
 		self.facing = "up"
 		self.changed = False
 		self.images = self.upImages
@@ -20,15 +22,15 @@ class SpeedyPax(ghost):
 		self.waitCount = 0
 		self.maxWait = 60*.25
 		self.image = self.images[self.frame]
-		self.rect = self.image.get_rect(center = self.rect.center)
+		self.rect = self.image.get_rect(center = self.rect.cen)
 		self.maxSpeed = 20
-		self.health = 1
+		self.sight = self.image.get_rect(center = self.rect.cen)
 		
 	def update(self, width, height):
 		Ball.update(self, width, height)
 		self.animate()
 		self.changed = False
-		
+		self.sight()
 		
 	def collideWall(self, width, height):
 		if not self.didBounceX:
@@ -66,6 +68,28 @@ class SpeedyPax(ghost):
 			
 			self.image = self.images[self.frame]
 	
+	def sight(self):
+		if self.waitCount < self.maxWait:
+			self.waitCount += 1
+		else:
+			self.waitCount = 0
+			self.changed = True
+			if self.frame < self.maxFrame:
+				self.frame += 1
+			else:
+				self.frame = 0
+		
+		if self.facing == "up":
+				self.images = self.sightImages
+		elif self.facing == "down":
+			self.images = self.sightImages
+		elif self.facing == "right":
+			self.images = self.sightImages
+		elif self.facing == "left":
+			self.images = self.sightImages
+			
+			self.image = self.images[self.frame]
+	
 	def go(self, direction):
 		if direction == "up":
 			self.facing = "up"
@@ -90,5 +114,7 @@ class SpeedyPax(ghost):
 			self.facing = "left"
 			self.changed = True
 			self.speedx = -self.maxSpeed
-		elif direction == "stop left":
+		elif direction == "stop left": 
 			self.speedx = 0
+				
+	

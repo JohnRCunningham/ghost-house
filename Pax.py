@@ -12,6 +12,8 @@ class Pax(ghost):
 						   pygame.image.load("Playltr.png"),]
 		self.rightImages = [pygame.image.load("Playrtr.png"),
 						    pygame.image.load("Playrtl.png")]
+		self.sightImages = [pygame.image.load("40pxRadius.png")]
+		
 		self.facing = "up"
 		self.changed = False
 		self.images = self.upImages
@@ -22,7 +24,6 @@ class Pax(ghost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 10
-		self.health = 1
 			
 	def update(self, width, height):
 		Ball.update(self, width, height)
@@ -64,6 +65,29 @@ class Pax(ghost):
 				self.images = self.leftImages
 			
 			self.image = self.images[self.frame]
+	
+	def sight(self):
+		if self.waitCount < self.maxWait:
+			self.waitCount += 1
+		else:
+			self.waitCount = 0
+			self.changed = True
+			if self.frame < self.maxFrame:
+				self.frame += 1
+			else:
+				self.frame = 0
+		
+		if self.facing == "up":
+				self.images = self.sightImages
+		elif self.facing == "down":
+			self.images = self.sightImages
+		elif self.facing == "right":
+			self.images = self.sightImages
+		elif self.facing == "left":
+			self.images = self.sightImages
+			
+			self.image = self.images[self.frame]
+	
 	
 	def go(self, direction):
 		if direction == "up":

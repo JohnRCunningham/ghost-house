@@ -4,19 +4,23 @@ import score
 #import menu
 #import Spawnchance
 from HUD import Text
-
+from HUD import Score
 
 pygame.init()
 
 clock= pygame.time.Clock()
 
-width = 1200 
+width = 1000 
 height = 600
 size = width, height
 
 bgColor = r,g,b = 225, 10, 10
 
 screen = pygame.display.set_mode(size)
+
+timer = Score([80, height - 25], "Time: ", 36)
+timerWait = 0
+timerWaitMax = 6
 
 run = False
 options = False
@@ -47,6 +51,8 @@ while True:
 					player.go("down")
 				if event.key == pygame.K_a or event.key == pygame.K_LEFT:
 					player.go("left")
+				if event.key == pygame.K_space:
+					player.go("skill")
 			if event.type == pygame.KEYUP:
 				if event.key == pygame.K_w or event.key == pygame.K_UP:
 					player.go("stop up")
@@ -56,6 +62,8 @@ while True:
 					player.go("stop down")
 				if event.key == pygame.K_a or event.key == pygame.K_LEFT:
 					player.go("stop left")
+				if event.key == pygame.K_space:
+					player.go("stop skill")
 			
 		if len(balls) < 10:
 			if random.randit(0, .25*60) == 0:
