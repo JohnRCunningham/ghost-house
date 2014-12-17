@@ -5,7 +5,7 @@ class Text():
                 self.text = text
                 self.textColor = textColor
                 self.font = pygame.font.Font(font, textSize)
-                self.image = self.font.render(sel`f.text, 1, textColor)
+                self.image = self.font.render(self.text, 1, textColor)
                 self.rect = self.image.get_rect()
                 self.place(pos)
                 
