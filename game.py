@@ -5,6 +5,7 @@ import score
 #import Spawnchance
 from HUD import Text
 from HUD import Score
+from Button import Button
 
 pygame.init()
 
@@ -35,6 +36,14 @@ while True:
 					run = True
 		bgColor = 20,20,20
 		screen.fill(bgColor)
+		Button([width/2, height-300], 
+				     "Start Base.png", 
+				     "Start Clicked.png")
+		self.image = self.baseImage
+			self.rect = self.image.get_rect()
+			self.place(500,300)
+			self.clicked = False
+			
 		pygame.display.flip()
 		clock.tick(60)
 	
@@ -65,7 +74,7 @@ while True:
 				if event.key == pygame.K_space:
 					player.go("stop skill")
 			
-		if len(balls) < 10:
+		if len(ghost) < 10:
 			if random.randit(0, .25*60) == 0:
 				balls += [Ball("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],
