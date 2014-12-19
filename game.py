@@ -11,8 +11,8 @@ pygame.init()
 
 clock= pygame.time.Clock()
 
-width = 1000 
-height = 600
+width = 800 
+height = 800
 size = width, height
 
 bgColor = r,g,b = 225, 10, 10
@@ -25,7 +25,15 @@ timerWaitMax = 6
 
 run = False
 options = False
-playerType = "pax"
+playerType = "Pax"
+
+bgImage = pygame.image.load("startMenu.png").convert()
+bgRect = bgImage.get_rect()
+
+startButton = Button([width/2, height-400], 
+				     "startButton.png", 
+				     "startButtonClicked.png")
+				    
 
 while True:
 	while not run and not options:
@@ -34,16 +42,15 @@ while True:
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_RETURN:
 					run = True
-		bgColor = 20,20,20
+			if event.type == pygame.MOUSEBUTTONDOWN:
+				startButton.click(event.pos)
+			if event.type == pygame.MOUSEBUTTONUP:
+				if startButton.release(event.pos):
+					run = True
+		bgColor = r,g,b
 		screen.fill(bgColor)
-		Button([width/2, height-300], 
-				     "Start Base.png", 
-				     "Start Clicked.png")
-		self.image = self.baseImage
-			self.rect = self.image.get_rect()
-			self.place(500,300)
-			self.clicked = False
-			
+		screen.blit(bgImage, bgRect)
+		screen.blit(startButton.image, startButton.rect)
 		pygame.display.flip()
 		clock.tick(60)
 	
