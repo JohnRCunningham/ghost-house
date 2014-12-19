@@ -1,11 +1,13 @@
 import pygame, sys, random
 import level
 import score
+import Pax
 #import menu
 #import Spawnchance
 from HUD import Text
 from HUD import Score
 from Button import Button
+
 
 pygame.init()
 
@@ -30,7 +32,7 @@ playerType = "Pax"
 bgImage = pygame.image.load("startMenu.png").convert()
 bgRect = bgImage.get_rect()
 
-startButton = Button([width/2, height-400], 
+startButton = Button([width/2, height-550], 
 				     "startButton.png", 
 				     "startButtonClicked.png")
 				    
