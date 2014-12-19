@@ -1,7 +1,7 @@
 import pygame
-from ghost import ghost
+from PhaseGhost import PhaseGhost
 
-class SpeedyPax(ghost):
+class SpeedyPax(PhaseGhost):
 	def __init__(self, pos):
 		Ball.__init__(self, "Playdnl.png", [0,0], pos)
 		self.upImages = [pygame.image.load("speedPlayupr.png"),
