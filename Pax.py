@@ -1,5 +1,5 @@
 import pygame
-from PhaseGhost import PhaseGhost
+from phaseGhost import PhaseGhost
 
 class Pax(PhaseGhost):
 	def __init__(self, pos):
