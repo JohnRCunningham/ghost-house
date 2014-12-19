@@ -5,13 +5,14 @@ import score
 #import Spawnchance
 from HUD import Text
 from HUD import Score
+from Button import Button
 
 pygame.init()
 
 clock= pygame.time.Clock()
 
-width = 1000 
-height = 600
+width = 800 
+height = 800
 size = width, height
 
 bgColor = r,g,b = 225, 10, 10
@@ -24,7 +25,15 @@ timerWaitMax = 6
 
 run = False
 options = False
-playerType = "pax"
+playerType = "Pax"
+
+bgImage = pygame.image.load("startMenu.png").convert()
+bgRect = bgImage.get_rect()
+
+startButton = Button([width/2, height-400], 
+				     "startButton.png", 
+				     "startButtonClicked.png")
+				    
 
 while True:
 	while not run and not options:
@@ -33,8 +42,15 @@ while True:
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_RETURN:
 					run = True
-		bgColor = 20,20,20
+			if event.type == pygame.MOUSEBUTTONDOWN:
+				startButton.click(event.pos)
+			if event.type == pygame.MOUSEBUTTONUP:
+				if startButton.release(event.pos):
+					run = True
+		bgColor = r,g,b
 		screen.fill(bgColor)
+		screen.blit(bgImage, bgRect)
+		screen.blit(startButton.image, startButton.rect)
 		pygame.display.flip()
 		clock.tick(60)
 	
@@ -65,7 +81,7 @@ while True:
 				if event.key == pygame.K_space:
 					player.go("stop skill")
 			
-		if len(balls) < 10:
+		if len(ghost) < 10:
 			if random.randit(0, .25*60) == 0:
 				balls += [Ball("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],
