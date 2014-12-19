@@ -1,6 +1,7 @@
 import pygame, sys, random
 import level
 import score
+import Pax
 #import menu
 #import Spawnchance
 from HUD import Text
