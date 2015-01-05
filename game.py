@@ -7,7 +7,7 @@ import Pax
 from HUD import Text
 from HUD import Score
 from Button import Button
-
+from Pax import Pax
 pygame.init()
 
 clock= pygame.time.Clock()
@@ -31,7 +31,7 @@ playerType = "Pax"
 bgImage = pygame.image.load("startMenu.png").convert()
 bgRect = bgImage.get_rect()
 
-startButton = Button([width/2, height-400], 
+startButton = Button([width/2, height-550], 
 				     "startButton.png", 
 				     "startButtonClicked.png")
 				    
@@ -55,7 +55,8 @@ while True:
 		pygame.display.flip()
 		clock.tick(60)
 	
-	player = Player(playerType, [0,0])
+	player = Pax(playerType
+	)
 	while run:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT: sys.exit()
