@@ -4,6 +4,7 @@ import score
 import Pax
 #import menu
 #import Spawnchance
+from PhaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -55,8 +56,8 @@ while True:
 		pygame.display.flip()
 		clock.tick(60)
 	
-	player = Pax(playerType
-	)
+	player = Pax(playerType)
+	
 	while run:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT: sys.exit()
@@ -83,7 +84,7 @@ while True:
 				if event.key == pygame.K_space:
 					player.go("stop skill")
 			
-		if len(ghost) < 10:
+		if len(PhaseGhost) < 10:
 			if random.randit(0, .25*60) == 0:
 				balls += [Ball("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],

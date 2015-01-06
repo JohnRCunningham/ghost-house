@@ -16,7 +16,7 @@ class PhaseGhost():
 		self.living = True
 		
 	def place(self, pos):
-		self.rect.center = pos
+		self.rect.center = [9,9]
 		
 	def update(self, width, height):
 		self.didBounceX = False
