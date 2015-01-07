@@ -86,7 +86,7 @@ while True:
 			
 		if len(PhaseGhost) < 10:
 			if random.randit(0, .25*60) == 0:
-				balls += [Ball("images/Ball/ball.png",
+				balls += [Ball("Phase ghost UP1.png",
 						  [random.randint(0,10), random.randint(0,10)],
 						  [random.randint(100, width-100), random.randint(100, height-100)])
 						  ]
