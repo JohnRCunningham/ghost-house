@@ -96,7 +96,7 @@ while True:
 			
 		for bully in ghosts:
 			for victem in ghosts:
-				bully.collideBall(victem)
+				bully.collideGhost(victem)
 				bully.collidePlayer(player)
 		
 		for ghost in ghosts:
