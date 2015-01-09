@@ -4,7 +4,7 @@ import score
 import Pax
 #import menu
 #import Spawnchance
-from PhaseGhost import PhaseGhost
+from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -84,9 +84,9 @@ while True:
 				if event.key == pygame.K_space:
 					player.go("stop skill")
 			
-		if len(PhaseGhost) < 10:
+		if len(ghosts) < 10:
 			if random.randit(0, .25*60) == 0:
-				balls += [Ball("Phase ghost UP1.png",
+				ghosts += [PhaseGhost("Phase ghost UP1.png",
 						  [random.randint(0,10), random.randint(0,10)],
 						  [random.randint(100, width-100), random.randint(100, height-100)])
 						  ]
