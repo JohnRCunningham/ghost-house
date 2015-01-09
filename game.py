@@ -92,23 +92,22 @@ while True:
 						  [random.randint(0,10), random.randint(0,10)],
 						  [random.randint(100, width-100), random.randint(100, height-100)])
 						  ]
-		player.update(width, height)
-		for ball in balls:
-			ball.update(width, height)
+		
 			
-		for bully in balls:
-			for victem in balls:
+		for bully in ghosts:
+			for victem in ghosts:
 				bully.collideBall(victem)
 				bully.collidePlayer(player)
 		
-		for ball in balls:
+		for ghost in ghosts:
 			if not ball.living:
-				balls.remove(ball)
+				ghosts.remove(ghost)
 		
 		bgColor = r,g,b
 		screen.fill(bgColor)
-		for ball in balls:
+		for ghost in ghosts:
 			screen.blit(ball.image, ball.rect)
 		screen.blit(player.image, player.rect)
 		pygame.display.flip()
 		clock.tick(60)
+

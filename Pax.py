@@ -26,7 +26,7 @@ class Pax(PhaseGhost):
 		self.maxSpeed = 10
 			
 	def update(self, width, height):
-		Ball.update(self, width, height)
+		Pax.update(self, width, height)
 		self.animate()
 		self.changed = False
 		
