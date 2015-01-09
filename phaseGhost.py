@@ -4,7 +4,7 @@ import pygame, math
 
 class PhaseGhost():
 	def __init__(self, image, speed = [0,0], pos = [0,0]):
-		self.image = pygame.image.load(image)
+		self.image = pygame.image.load("Phase ghostUP1.png")
 		self.rect = self.image.get_rect()
 		self.speedx = speed[0]
 		self.speedy = speed[1]
@@ -27,3 +27,4 @@ class PhaseGhost():
 		
 	def move(self):
 		self.rect = self.rect.move(self.speed)
+		
