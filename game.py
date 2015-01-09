@@ -32,6 +32,8 @@ playerType = "Pax"
 bgImage = pygame.image.load("startMenu.png").convert()
 bgRect = bgImage.get_rect()
 
+ghosts = []
+
 startButton = Button([width/2, height-550], 
 				     "startButton.png", 
 				     "startButtonClicked.png")
@@ -68,7 +70,7 @@ while True:
 					player.go("right")
 				if event.key == pygame.K_s or event.key == pygame.K_DOWN:
 					player.go("down")
-				if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+				if event.key == pygame.K_a or event.key == pygame.K_5LEFT:
 					player.go("left")
 				if event.key == pygame.K_space:
 					player.go("skill")
@@ -84,9 +86,9 @@ while True:
 				if event.key == pygame.K_space:
 					player.go("stop skill")
 			
-		if len(PhaseGhost) < 10:
-			if random.randit(0, .25*60) == 0:
-				balls += [Ball("images/Ball/ball.png",
+		if len(ghosts) < 10:
+			if random.randint(0, .25*60) == 0:
+				ghosts += [PhaseGhost("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],
 						  [random.randint(100, width-100), random.randint(100, height-100)])
 						  ]
