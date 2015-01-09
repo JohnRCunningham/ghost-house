@@ -4,7 +4,7 @@ import score
 import Pax
 #import menu
 #import Spawnchance
-from PhaseGhost import PhaseGhost
+from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
