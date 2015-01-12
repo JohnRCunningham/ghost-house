@@ -70,10 +70,8 @@ while True:
 					player.go("right")
 				if event.key == pygame.K_s or event.key == pygame.K_DOWN:
 					player.go("down")
-				if event.key == pygame.K_a or event.key == pygame.K_5LEFT:
+				if event.key == pygame.K_a or event.key == pygame.K_LEFT:
 					player.go("left")
-				if event.key == pygame.K_space:
-					player.go("skill")
 			if event.type == pygame.KEYUP:
 				if event.key == pygame.K_w or event.key == pygame.K_UP:
 					player.go("stop up")
@@ -83,8 +81,6 @@ while True:
 					player.go("stop down")
 				if event.key == pygame.K_a or event.key == pygame.K_LEFT:
 					player.go("stop left")
-				if event.key == pygame.K_space:
-					player.go("stop skill")
 			
 		if len(ghosts) < 10:
 			if random.randint(0, .25*60) == 0:
@@ -96,17 +92,17 @@ while True:
 			
 		for bully in ghosts:
 			for victem in ghosts:
-				bully.collideBall(victem)
+				bully.collideGhost(victem)
 				bully.collidePlayer(player)
 		
 		for ghost in ghosts:
-			if not ball.living:
+			if not ghost.living:
 				ghosts.remove(ghost)
 		
 		bgColor = r,g,b
 		screen.fill(bgColor)
 		for ghost in ghosts:
-			screen.blit(ball.image, ball.rect)
+			screen.blit(ghost.image, ghost.rect)
 		screen.blit(player.image, player.rect)
 		pygame.display.flip()
 		clock.tick(60)

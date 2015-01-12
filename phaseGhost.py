@@ -28,3 +28,34 @@ class PhaseGhost():
 	def move(self):
 		self.rect = self.rect.move(self.speed)
 		
+	def collideGhost(self,other):
+		if self != other:
+			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+					if (self.radius + other.radius) > self.distance(other.rect.center):
+						if not self.didBounceX:
+							self.speedx = -self.speedx
+							self.didBouncex = True
+						if not self.didBounceY:
+							self.speedy = -self.speedy
+							self.didBounceY = True
+							
+	def collidePlayer(self,other):
+		if self != other:
+			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+					if (self.radius + other.radius) > self.distance(other.rect.center):
+						if not self.didBounceX:
+							self.speedx = -self.speedx
+							self.didBouncex = True
+						if not self.didBounceY:
+							self.speedy = -self.speedy
+							self.didBounceY = True
+					
+	def distance(self, pt):
+		x1 = self.rect.center[0]
+		y1 = self.rect.center[1]
+		x2 = pt[0]
+		y2 = pt[1]
+		return math.sqrt(((x2-x1)**2) + ((y2-y1)**2))
+							
