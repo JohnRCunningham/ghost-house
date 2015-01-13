@@ -3,7 +3,7 @@ from phaseGhost import PhaseGhost
 
 class Pax(PhaseGhost):
 	def __init__(self, pos):
-		PhaseGhost.__init__(self, "Playupr.png", [0,0], pos)
+		PhaseGhost.__init__(self, "Playupr.png", [10,10], pos)
 		self.upImages = [pygame.image.load("Playupr.png"),
 						 pygame.image.load("Playupl.png"),]
 		self.downImages = [pygame.image.load("Playdnl.png"),
