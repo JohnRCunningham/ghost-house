@@ -4,7 +4,7 @@ import pygame, math
 
 class PhaseGhost():
 	def __init__(self, image, speed = [0,0], pos = [0,0]):
-		self.image = pygame.image.load("Phase ghostUP1.png")
+		self.image = pygame.image.load("Phase ghostDN1.png")
 		self.rect = self.image.get_rect()
 		self.speedx = speed[0]
 		self.speedy = speed[1]
@@ -72,3 +72,4 @@ class PhaseGhost():
 		x2 = pt[0]
 		y2 = pt[1]
 		return math.sqrt(((x2-x1)**2) + ((y2-y1)**2))
+							
