@@ -90,6 +90,7 @@ while True:
 						  [random.randint(100, width-100), random.randint(100, height-100)])
 						  ]
 		
+		player.update(width, height)
 			
 		for bully in ghosts:
 			for victem in ghosts:
