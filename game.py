@@ -60,6 +60,7 @@ while True:
 	
 	player = Pax(playerType)
 	
+	ghost = PhaseGhost(ghosts)
 	while run:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT: sys.exit()
@@ -91,6 +92,7 @@ while True:
 						  ]
 		
 		player.update(width, height)
+		
 			
 		for bully in ghosts:
 			for victem in ghosts:
