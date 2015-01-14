@@ -17,7 +17,7 @@ width = 800
 height = 800
 size = width, height
 
-bgColor = r,g,b = 225, 10, 10
+bgColor = r,g,b = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
 
@@ -60,7 +60,7 @@ while True:
 	
 	player = Pax(playerType)
 	
-	ghost = PhaseGhost(ghosts)
+	ghost = PhaseGhost(PhaseGhost)
 	while run:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT: sys.exit()
@@ -84,7 +84,7 @@ while True:
 					player.go("stop left")
 				
 			
-		if len(ghosts) < 10:
+		if len(ghosts) < 5:
 			if random.randint(0, .25*60) == 0:
 				ghosts += [PhaseGhost("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],
@@ -93,6 +93,7 @@ while True:
 		
 		player.update(width, height)
 		
+		ghost.update(width, height)
 			
 		for bully in ghosts:
 			for victem in ghosts:

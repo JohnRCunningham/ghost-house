@@ -4,7 +4,14 @@ import pygame, math
 
 class PhaseGhost():
 	def __init__(self, image, speed = [0,0], pos = [0,0]):
-		self.image = pygame.image.load("Phase ghostDN1.png")
+		self.upImages = [pygame.image.load("Phase ghostUp1.png"),
+						 pygame.image.load("Phase ghostUp2.png"),]
+		self.downImages = [pygame.image.load("Phase ghostDN1.png"),
+						   pygame.image.load("Phase ghostDN2.png"),]
+		self.leftImages = [pygame.image.load("Phase ghostLFT1.png"),
+						   pygame.image.load("Phase ghostLFT2.png"),]
+		self.rightImages = [pygame.image.load("Phase ghostRGT1.png"),
+						    pygame.image.load("Phase ghostRGT2.png")]
 		self.rect = self.image.get_rect()
 		self.speedx = speed[0]
 		self.speedy = speed[1]
@@ -23,10 +30,34 @@ class PhaseGhost():
 		self.didBounceY = False
 		self.speed = [self.speedx, self.speedy]
 		self.move()
+		self.animate()
 		self.collideWall(width, height)
 		
 	def move(self):
 		self.rect = self.rect.move(self.speed)
+	
+	def animate(self):
+		if self.waitCount < self.maxWait:
+			self.waitCount += 1
+		else:
+			self.waitCount = 0
+			self.changed = True
+			if self.frame < self.maxFrame:
+				self.frame += 1
+			else:
+				self.frame = 0
+		
+		if self.changed:
+			if self.facing == "up":
+				self.images = self.upImages
+			elif self.facing == "down":
+				self.images = self.downImages
+			elif self.facing == "right":
+				self.images = self.rightImages
+			elif self.facing == "left":
+				self.images = self.leftImages
+			
+			self.image = self.images[self.frame]
 	
 	def collideWall(self, width, height):
 		if not self.didBounceX:
@@ -58,12 +89,7 @@ class PhaseGhost():
 			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
 				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
 					if (self.radius + other.radius) > self.distance(other.rect.center):
-						if not self.didBounceX:
-							self.speedx = -self.speedx
-							self.didBouncex = True
-						if not self.didBounceY:
-							self.speedy = -self.speedy
-							self.didBounceY = True
+						self.living = False
 						
 
 	def distance(self, pt):
