@@ -28,7 +28,7 @@ class Pax(PhaseGhost):
 		PhaseGhost.update(self, width, height)
 		self.animate()
 		self.changed = False
-		self.sight()
+		
 		
 	def collideWall(self, width, height):
 		if not self.didBounceX:
@@ -55,7 +55,6 @@ class Pax(PhaseGhost):
 				self.frame = 0
 		
 		if self.changed:	
-			self.images = self.sightImages
 			if self.facing == "up":
 				self.images = self.upImages
 			elif self.facing == "down":
@@ -66,29 +65,7 @@ class Pax(PhaseGhost):
 				self.images = self.leftImages
 			
 			self.image = self.images[self.frame]
-	
-	def sight(self):
-		if self.waitCount < self.maxWait:
-			self.waitCount += 1
-		else:
-			self.waitCount = 0
-			self.changed = True
-			if self.frame < self.maxFrame:
-				self.frame += 1
-			else:
-				self.frame = 0
-		
-		if self.changed:
-			if self.facing == "up":
-				self.images = self.sightImages
-			elif self.facing == "down":
-				self.images = self.sightImages
-			elif self.facing == "right":
-				self.images = self.sightImages
-			elif self.facing == "left":
-				self.images = self.sightImages
 			
-				self.image = self.images[self.frame]
 	
 	
 	def go(self, direction):
