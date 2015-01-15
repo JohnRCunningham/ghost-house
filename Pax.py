@@ -56,6 +56,7 @@ class Pax(PhaseGhost):
 				self.frame = 0
 		
 		if self.changed:	
+			self.images = self.sightImages
 			if self.facing == "up":
 				self.images = self.upImages
 			elif self.facing == "down":
