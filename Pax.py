@@ -45,7 +45,7 @@ class Pax(PhaseGhost):
 	
 	def animate(self):
 		if self.waitCount < self.maxWait:
-			self.waitCount += .25
+			self.waitCount += .45
 		else:
 			self.waitCount = 0
 			self.changed = True

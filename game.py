@@ -84,7 +84,7 @@ while True:
 					player.go("stop left")
 				
 			
-		if len(ghosts) < 1:
+		if len(ghosts) < 3:
 			if random.randint(0, .25*60) == 0:
 				ghosts += [PhaseGhost("images/Ball/ball.png",
 						  [random.randint(0,10), random.randint(0,10)],
