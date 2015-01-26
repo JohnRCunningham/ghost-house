@@ -4,7 +4,7 @@ import score
 import Pax
 #import menu
 #import Spawnchance
-from phaseGhost import PhaseGhost
+from PhaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -59,7 +59,7 @@ while True:
         pygame.display.flip()
         clock.tick(60)
     
-    player = Pax(playerType)
+    player = Pax([width/2, height/2])
     
     ghost = PhaseGhost(PhaseGhost)
     while run:
