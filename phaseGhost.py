@@ -21,8 +21,8 @@ class PhaseGhost():
 		self.maxWait = 60*.25
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect()
-		self.speedx = speed[0]
-		self.speedy = speed[1]
+		self.speedx = 4
+		self.speedy = 4
 		self.speed = [self.speedx, self.speedy]
 		self.place(pos)
 		self.didBounceX = False
