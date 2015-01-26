@@ -3,7 +3,7 @@ import pygame, math
 
 
 class PhaseGhost():
-	def __init__(self, image, speed = [0,0], pos = [0,0]):
+	def __init__(self, image, speed = [0,0], pos = [100,100]):
 		self.upImages = [pygame.image.load("Phase ghostUp1.png"),
 						 pygame.image.load("Phase ghostUp2.png"),]
 		self.downImages = [pygame.image.load("Phase ghostDN1.png"),
@@ -23,7 +23,7 @@ class PhaseGhost():
 		self.living = True
 		
 	def place(self, pos):
-		self.rect.center = [9,9]
+		self.rect.center = [12.5,12.5]
 		
 	def update(self, width, height):
 		self.didBounceX = False

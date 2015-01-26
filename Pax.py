@@ -11,7 +11,7 @@ class Pax(PhaseGhost):
 		self.leftImages = [pygame.image.load("Playltl.png"),
 						   pygame.image.load("Playltr.png"),]
 		self.rightImages = [pygame.image.load("Playrtr.png"),
-						    pygame.image.load("Playrtl.png")]
+							pygame.image.load("Playrtl.png")]
 		self.sightImages = [pygame.image.load("40pxRadius.png")]
 		
 		self.facing = "up"
@@ -30,6 +30,7 @@ class Pax(PhaseGhost):
 		self.changed = False
 		
 		
+	
 	def collideWall(self, width, height):
 		if not self.didBounceX:
 			#print "trying to hit Wall"

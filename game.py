@@ -28,6 +28,7 @@ timerWaitMax = 6
 run = False
 options = False
 playerType = "Pax"
+mapImage = "Maplv1.png"
 
 bgImage = pygame.image.load("startMenu.png").convert()
 bgRect = bgImage.get_rect()
@@ -35,9 +36,9 @@ bgRect = bgImage.get_rect()
 ghosts = []
 
 startButton = Button([width/2, height-550], 
-				     "startButton.png", 
-				     "startButtonClicked.png")
-				    
+					 "startButton.png", 
+					 "startButtonClicked.png")
+					
 
 while True:
 	while not run and not options:
@@ -104,8 +105,9 @@ while True:
 			if not ghost.living:
 				ghosts.remove(ghost)
 		
-		bgColor = r,g,b
-		screen.fill(bgColor)
+		bgImage = "Maplv1.png"
+		
+		
 		for ghost in ghosts:
 			screen.blit(ghost.image, ghost.rect)
 		screen.blit(player.image, player.rect)
