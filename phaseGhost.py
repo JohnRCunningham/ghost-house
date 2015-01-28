@@ -16,7 +16,7 @@ class PhaseGhost():
 		self.changed = False
 		self.images = self.upImages
 		self.frame = 0
-		self.maxFrame = len(self.images) - 1
+		self.maxFrame = len(self.images) - 2
 		self.waitCount = 0
 		self.maxWait = 60*.25
 		self.image = self.images[self.frame]
