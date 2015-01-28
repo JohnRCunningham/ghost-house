@@ -85,18 +85,17 @@ while True:
                     player.go("stop left")
                 
             
-        if len(ghosts) < 6:
+        if len(ghosts) < 5:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
                           [random.randint(15,100), random.randint(15,100)],
-                          
-                          
                           [random.randint(100, width-100), random.randint(100, height-100)])
                           ]
                 print ghosts[-1].rect.center
         player.update(width, height)
         
-        ghost.update(width, height)
+        for ghost in ghosts:
+            ghost.update(width, height)
             
         for bully in ghosts:
             for victem in ghosts:
