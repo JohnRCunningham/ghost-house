@@ -85,7 +85,7 @@ while True:
                     player.go("stop left")
                 
             
-        if len(ghosts) < 5:
+        if len(ghosts) < 10:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
                           [random.randint(15,100), random.randint(15,100)],
@@ -104,7 +104,8 @@ while True:
         
         for ghost in ghosts:
             if not ghost.living:
-                ghosts.remove(ghost)
+                    ghosts.remove(ghost)
+ 
         
         bgColor = r,g,b
         screen.fill(bgColor)

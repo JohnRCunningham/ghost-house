@@ -23,8 +23,8 @@ class Pax(PhaseGhost):
 		self.maxWait = 60*.25
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
-		self.maxSpeed = 3.5	
-        		
+		self.maxSpeed = 3	
+				
 	def update(self, width, height):
 		PhaseGhost.update(self, width, height)
 		self.animate()
@@ -96,6 +96,13 @@ class Pax(PhaseGhost):
 			self.speedx = -self.maxSpeed
 		elif direction == "stop left":
 			self.speedx = 0
+	
+	def collideGhost(self, other):
+		if self != other:
+			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+					if (self.radius + other.radius) > self.distance(other.rect.center):
+						self.living = False
 
 			
 			
