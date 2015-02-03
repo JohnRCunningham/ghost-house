@@ -9,12 +9,13 @@ from HUD import Text
 from HUD import Score
 from Button import Button
 from Pax import Pax
+from Vision import Vision
 pygame.init()
 
 clock= pygame.time.Clock()
 
 width = 800 
-height = 800
+height = 700
 size = width, height
 
 bgColor = r,g,b = 0, 0, 0
@@ -38,7 +39,8 @@ ghosts = []
 startButton = Button([width/2, height-550], 
                      "startButton.png", 
                      "startButtonClicked.png")
-                    
+
+                
 
 while True:
     while not run and not options:
@@ -60,6 +62,7 @@ while True:
         clock.tick(60)
     
     player = Pax([width/2, height/2])
+    vision = Vision("small", player)
     
     ghost = PhaseGhost(PhaseGhost)
     while run:
@@ -93,6 +96,7 @@ while True:
                           ]
                 print ghosts[-1].rect.center
         player.update(width, height)
+        vision.update()
         
         for ghost in ghosts:
             ghost.update(width, height)
@@ -111,6 +115,7 @@ while True:
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
         screen.blit(player.image, player.rect)
+        screen.blit(vision.image, vision.rect)
         pygame.display.flip()
         clock.tick(60)
 

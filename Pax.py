@@ -12,7 +12,7 @@ class Pax(PhaseGhost):
 						   pygame.image.load("Playltr.png"),]
 		self.rightImages = [pygame.image.load("Playrtr.png"),
 							pygame.image.load("Playrtl.png")]
-		self.sightImages = [pygame.image.load("40pxRadius.png")]
+		
 		
 		self.facing = "up"
 		self.changed = False
@@ -24,7 +24,7 @@ class Pax(PhaseGhost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 3.5	
-        		
+				
 	def update(self, width, height):
 		PhaseGhost.update(self, width, height)
 		self.animate()
@@ -67,8 +67,8 @@ class Pax(PhaseGhost):
 				self.images = self.leftImages
 			
 			self.image = self.images[self.frame]
+
 			
-	
 	
 	def go(self, direction):
 		if direction == "up":
