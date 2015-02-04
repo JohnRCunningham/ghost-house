@@ -4,7 +4,7 @@ import score
 import Pax
 #import menu
 #import Spawnchance
-from PhaseGhost import PhaseGhost
+from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -112,7 +112,7 @@ while True:
  
         
         bgColor = r,g,b
-        screen.fill(bgColor)
+        #screen.fill(bgColor)
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
         screen.blit(player.image, player.rect)
