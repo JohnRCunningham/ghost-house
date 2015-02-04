@@ -91,7 +91,7 @@ while True:
         if len(ghosts) < 10:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
-                          [random.randint(15,100), random.randint(15,100)],
+                          [random.randint(2,100), random.randint(2,100)],
                           [random.randint(100, width-100), random.randint(100, height-100)])
                           ]
                 print ghosts[-1].rect.center
