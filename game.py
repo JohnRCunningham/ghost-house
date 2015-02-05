@@ -2,8 +2,6 @@ import pygame, sys, random
 import level
 import score
 import Pax
-#import menu
-#import Spawnchance
 from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
@@ -15,7 +13,7 @@ pygame.init()
 clock= pygame.time.Clock()
 
 width = 800 
-height = 700
+height = 800
 size = width, height
 
 bgColor = r,g,b = 0, 0, 0
@@ -29,7 +27,9 @@ timerWaitMax = 6
 run = False
 options = False
 playerType = "Pax"
-mapImage = "Maplv1.png"
+
+mapImage = pygame.image.load("Maplv1.png").convert()
+mapRect = mapImage.get_rect()
 
 bgImage = pygame.image.load("startMenu.png").convert()
 bgRect = bgImage.get_rect()
@@ -112,11 +112,12 @@ while True:
  
         
         bgColor = r,g,b
-        #screen.fill(bgColor)
+        screen.fill(bgColor)
+        screen.blit(mapImage, mapRect)
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
         screen.blit(player.image, player.rect)
-        screen.blit(vision.image, vision.rect)
+        #screen.blit(vision.image, vision.rect)
         pygame.display.flip()
         clock.tick(60)
 
