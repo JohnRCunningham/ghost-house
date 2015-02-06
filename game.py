@@ -2,7 +2,7 @@ import pygame, sys, random
 import level
 import score
 import Pax
-<<<<<<< HEAD
+
 import Speedypax
 #import menu
 #import Spawnchance
