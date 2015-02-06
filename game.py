@@ -5,7 +5,7 @@ import Pax
 import Speedypax
 #import menu
 #import Spawnchance
-from PhaseGhost import PhaseGhost
+from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -113,6 +113,7 @@ while True:
         for ghost in ghosts:
             if not ghost.living:
                     ghosts.remove(ghost)
+                
  
         
         bgColor = r,g,b
