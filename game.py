@@ -2,14 +2,10 @@ import pygame, sys, random
 import level
 import score
 import Pax
-
 import Speedypax
 #import menu
 #import Spawnchance
 from PhaseGhost import PhaseGhost
-=======
-from phaseGhost import PhaseGhost
->>>>>>> origin/master
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -21,7 +17,7 @@ pygame.init()
 clock= pygame.time.Clock()
 
 width = 800 
-height = 700
+height = 800
 size = width, height
 
 bgColor = r,g,b = 0, 0, 0
