@@ -9,7 +9,6 @@ from phaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
-from Speedypax import SpeedyPax
 from Pax import Pax
 from Vision import Vision
 pygame.init()

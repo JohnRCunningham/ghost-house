@@ -1,5 +1,5 @@
 import pygame
-from PhaseGhost import phaseGhost
+from phaseGhost import PhaseGhost
 
 class Pax(PhaseGhost):
 	def __init__(self, pos):
@@ -24,7 +24,8 @@ class Pax(PhaseGhost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 3
-				
+      
+            
 	def update(self, width, height):
 		PhaseGhost.update(self, width, height)
 		self.animate()
@@ -97,12 +98,4 @@ class Pax(PhaseGhost):
 		elif direction == "stop left":
 			self.speedx = 0
 	
-	def collideGhost(self, other):
-		if self != other:
-			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
-				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-					if (self.radius + other.radius) > self.distance(other.rect.center):
-						self.living = True
-
-			
-			
+	
