@@ -117,7 +117,6 @@ while True:
         
         bgColor = r,g,b
         screen.fill(bgColor)
-        screen.blit(mapImage, mapRect)
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
         screen.blit(player.image, player.rect)
