@@ -24,8 +24,8 @@ class Pax(PhaseGhost):
 		self.image = self.images[self.frame]
 		self.rect = self.image.get_rect(center = self.rect.center)
 		self.maxSpeed = 3
-      
-            
+		self.living = True
+				
 	def update(self, width, height):
 		PhaseGhost.update(self, width, height)
 		self.animate()
