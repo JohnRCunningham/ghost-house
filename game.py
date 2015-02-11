@@ -121,7 +121,7 @@ while True:
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
         screen.blit(player.image, player.rect)
-        #screen.blit(vision.image, vision.rect)
+        screen.blit(vision.image, vision.rect)
         pygame.display.flip()
         clock.tick(60)
 
