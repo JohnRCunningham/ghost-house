@@ -80,6 +80,8 @@ while True:
                     player.go("down")
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     player.go("left")
+                #if event.key == pygame.K_SPACE:
+                   # screen.blit(vision.image, vision.rect)
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     player.go("stop up")
@@ -89,6 +91,9 @@ while True:
                     player.go("stop down")
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     player.go("stop left")
+                #if event.key == pygame.K_SPACE:
+                    #not screen.blit(vision.image, vision.rect)
+                
                 
             
         if len(ghosts) < 10:
