@@ -5,7 +5,7 @@ import Pax
 import Speedypax
 #import menu
 #import Spawnchance
-from phaseGhost import PhaseGhost
+from PhaseGhost import PhaseGhost
 from HUD import Text
 from HUD import Score
 from Button import Button
