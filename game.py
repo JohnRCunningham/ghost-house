@@ -34,7 +34,7 @@ playerType = "Pax"
 mapImage = pygame.image.load("Maplv1.png").convert()
 mapRect = mapImage.get_rect()
 
-bgImage = pygame.image.load("startMenu.png").convert()
+bgImage = pygame.image.load("download.png").convert()
 bgRect = bgImage.get_rect()
 
 ghosts = []
@@ -113,8 +113,6 @@ while True:
             if not ghost.living:
                     ghosts.remove(ghost)
                 
- 
-        
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(mapImage, mapRect)
