@@ -64,33 +64,35 @@ while True:
         pygame.display.flip()
         clock.tick(60)
     
-    player = Pax([width/2, height/2])
-    vision = Vision("small", player)
+    players = [Pax([width/2, height/2])]
+    visions = []
+    for player in players:
+        visions += [Vision("small", player)]
     
-    ghost = PhaseGhost(PhaseGhost)
-    while run:
+    ghosts = []
+    while run and len(players)> 0:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
-                    player.go("up")
+                    players[0].go("up")
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                    player.go("right")
+                    players[0].go("right")
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                    player.go("down")
+                    players[0].go("down")
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                    player.go("left")
+                    players[0].go("left")
                 #if event.key == pygame.K_SPACE:
                    # screen.blit(vision.image, vision.rect)
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
-                    player.go("stop up")
+                    players[0].go("stop up")
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                    player.go("stop right")
+                    players[0].go("stop right")
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                    player.go("stop down")
+                    players[0].go("stop down")
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                    player.go("stop left")
+                    players[0].go("stop left")
                 #if event.key == pygame.K_SPACE:
                     #not screen.blit(vision.image, vision.rect)
                 
@@ -99,32 +101,34 @@ while True:
         if len(ghosts) < 10:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
-                          [random.randint(2,100), random.randint(2,100)],
+                          [random.randint(-3,3), random.randint(-3,3)],
                           [random.randint(100, width-100), random.randint(100, height-100)])
                           ]
                 print ghosts[-1].rect.center
         player.update(width, height)
-        vision.update()
+        for vision in visions:
+            vision.update()
         
         for ghost in ghosts:
             ghost.update(width, height)
             
-        for bully in ghosts:
-            for victem in ghosts:
-                bully.collideGhost(victem)
-                bully.collidePlayer(player)
+        for player in players:
+            for ghost in ghosts:
+                player.collideGhost(ghost)
+                ghost.collidePlayer(player)
         
-        for ghost in ghosts:
-            if not ghost.living:
-                    ghosts.remove(ghost)
+        for player in players:
+            if not player.living:
+                    players.remove(player)
                 
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(mapImage, mapRect)
         for ghost in ghosts:
             screen.blit(ghost.image, ghost.rect)
-        screen.blit(player.image, player.rect)
+        for player in players:
+            screen.blit(player.image, player.rect)
         screen.blit(vision.image, vision.rect)
         pygame.display.flip()
         clock.tick(60)
-
+    run = False
