@@ -11,6 +11,7 @@ from HUD import Score
 from Button import Button
 from Pax import Pax
 from Vision import Vision
+from Wall import Wall
 pygame.init()
 
 clock= pygame.time.Clock()
@@ -38,6 +39,8 @@ bgImage = pygame.image.load("download.png").convert()
 bgRect = bgImage.get_rect()
 
 ghosts = []
+
+walls = [Wall([0,0],[338,68])]
 
 startButton = Button([width/2, height-550], 
                      "startButton.png", 
@@ -120,6 +123,9 @@ while True:
         for player in players:
             if not player.living:
                     players.remove(player)
+        
+      #  for wall in walls:
+            #screen.blit(wall.image, wall.rect)
                 
         bgColor = r,g,b
         screen.fill(bgColor)
