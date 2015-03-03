@@ -39,7 +39,7 @@ class PhaseGhost():
         self.speed = [self.speedx, self.speedy]
         self.move()
         self.animate()
-        self.collideWall(width, height)
+        self.collideEdge(width, height)
         
     def move(self):
         self.rect = self.rect.move(self.speed)
@@ -67,7 +67,7 @@ class PhaseGhost():
             
             self.image = self.images[self.frame]
     
-    def collideWall(self, width, height):
+    def collideEdge(self, width, height):
         if not self.didBounceX:
             #print "trying to hit Wall"
             if self.rect.left < 0 or self.rect.right > width:

@@ -5,7 +5,7 @@ class Vision():
         self.kind = kind
         self.player = player
         if self.kind == "small":
-            self.image = pygame.image.load("40pxRadius.png")
+            self.image = pygame.image.load("Resources/Vision/40pxRadius.png")
         self.rect = self.image.get_rect(center = self.player.rect.center)   
         
         

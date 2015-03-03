@@ -32,15 +32,18 @@ run = False
 options = False
 playerType = "Pax"
 
-mapImage = pygame.image.load("Maplv1.png").convert()
+mapImage = pygame.image.load("Resources/Maps/Maplv1.png").convert()
 mapRect = mapImage.get_rect()
 
-bgImage = pygame.image.load("download.png").convert()
+bgImage = pygame.image.load("Resources/Objects/download.png").convert()
 bgRect = bgImage.get_rect()
 
 ghosts = []
 
-walls = [Wall([0,0],[338,68])]
+walls = [Wall([0,0],[100,800]),
+        [Wall([0,100],[800,0]),
+        [Wall([800,800],[0,700]),
+        [Wall([700,100],[800,800])]
 
 startButton = Button([width/2, height-550], 
                      "startButton.png", 
@@ -124,8 +127,11 @@ while True:
             if not player.living:
                     players.remove(player)
         
-      #  for wall in walls:
-            #screen.blit(wall.image, wall.rect)
+        for wall in walls:
+            player.collideWall(wall)
+        
+        for wall in walls:
+            screen.blit(wall.image, wall.rect)
                 
         bgColor = r,g,b
         screen.fill(bgColor)
