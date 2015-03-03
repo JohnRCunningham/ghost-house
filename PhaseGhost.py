@@ -4,14 +4,14 @@ import pygame, math
 
 class PhaseGhost():
     def __init__(self, image, speed = [0,0], pos = [0,0]):
-        self.upImages = [pygame.image.load("Phase ghostUp1.png"),
-                         pygame.image.load("Phase ghostUp2.png"),]
-        self.downImages = [pygame.image.load("Phase ghostDN1.png"),
-                           pygame.image.load("Phase ghostDN2.png"),]
-        self.leftImages = [pygame.image.load("Phase ghostLFT1.png"),
-                           pygame.image.load("Phase ghostLFT2.png"),]
-        self.rightImages = [pygame.image.load("Phase ghostRGT1.png"),
-                            pygame.image.load("Phase ghostRGT2.png")]
+        self.upImages = [pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostUp1.png"),
+                         pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostUp2.png"),]
+        self.downImages = [pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostDN1.png"),
+                           pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostDN2.png"),]
+        self.leftImages = [pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostLFT1.png"),
+                           pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostLFT2.png"),]
+        self.rightImages = [pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostRGT1.png"),
+                            pygame.image.load("Resources/Objects/Ghosts/Phase/Phase ghostRGT2.png")]
         self.facing = "up"
         self.changed = False
         self.images = self.upImages

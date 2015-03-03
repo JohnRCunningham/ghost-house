@@ -3,15 +3,15 @@ from PhaseGhost import PhaseGhost
 
 class Pax(PhaseGhost):
     def __init__(self, pos):
-        PhaseGhost.__init__(self, "Playupr.png", [0,0], pos)
-        self.upImages = [pygame.image.load("Playupr.png"),
-                         pygame.image.load("Playupl.png"),]
-        self.downImages = [pygame.image.load("Playdnl.png"),
-                           pygame.image.load("Playdnr.png"),]
-        self.leftImages = [pygame.image.load("Playltl.png"),
-                           pygame.image.load("Playltr.png"),]
-        self.rightImages = [pygame.image.load("Playrtr.png"),
-                            pygame.image.load("Playrtl.png")]
+        PhaseGhost.__init__(self, "Resources/Player/Pax/Normal Pax/Playupr.png", [0,0], pos)
+        self.upImages = [pygame.image.load("Resources/Player/Pax/Normal Pax/Playupr.png"),
+                         pygame.image.load("Resources/Player/Pax/Normal Pax/Playupl.png"),]
+        self.downImages = [pygame.image.load("Resources/Player/Pax/Normal Pax/Playdnl.png"),
+                           pygame.image.load("Resources/Player/Pax/Normal Pax/Playdnr.png"),]
+        self.leftImages = [pygame.image.load("Resources/Player/Pax/Normal Pax/Playltl.png"),
+                           pygame.image.load("Resources/Player/Pax/Normal Pax/Playltr.png"),]
+        self.rightImages = [pygame.image.load("Resources/Player/Pax/Normal Pax/Playrtr.png"),
+                            pygame.image.load("Resources/Player/Pax/Normal Pax/Playrtl.png")]
         
         self.facing = "up"
         self.changed = False
