@@ -40,7 +40,7 @@ bgRect = bgImage.get_rect()
 
 ghosts = []
 
-walls = [Wall([0,0],[338,68])]
+#walls = [Wall([0,0],[338,68])]
 
 startButton = Button([width/2, height-550], 
                      "startButton.png", 
