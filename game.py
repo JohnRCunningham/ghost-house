@@ -35,21 +35,20 @@ playerType = "Pax"
 mapImage = pygame.image.load("Resources/Maps/Maplv1.png").convert()
 mapRect = mapImage.get_rect()
 
-bgImage = pygame.image.load("Resources/Objects/download2.png").convert()
+bgImage = pygame.image.load("Resources/Objects/download.png").convert()
 bgRect = bgImage.get_rect()
 
 ghosts = []
 
 walls = [Wall([0,0],[100,800]),
-		[Wall([0,100],[800,0]),
-		[Wall([800,800],[0,700]),
-		[Wall([700,100],[800,800])]
+        [Wall([0,100],[800,0]),
+        [Wall([800,800],[0,700]),
+        [Wall([700,100],[800,800])]
 
 startButton = Button([width/2, height-550], 
 					 "Resources/Objects/startButton.png", 
 					 "Resources/Objects/startButtonClicked.png")
 
-				
 
 while True:
 	while not run and not options:
@@ -69,12 +68,12 @@ while True:
 		screen.blit(startButton.image, startButton.rect)
 		pygame.display.flip()
 		clock.tick(60)
-	
-	players = [Pax([width/2, height/2])]
-	visions = []
-	for player in players:
-		visions += [Vision("small", player)]
-	
+    
+    players = [Pax([width/2, height/2])]
+    visions = []
+    for player in players:
+        visions += [Vision("small", player)]
+    
 	ghosts = []
 	while run and len(players)> 0:
 		for event in pygame.event.get():
@@ -101,32 +100,32 @@ while True:
 					players[0].go("stop left")
 				#if event.key == pygame.K_SPACE:
 					#not screen.blit(vision.image, vision.rect)
-				
-				
-			
-		if len(ghosts) < 10:
-			if random.randint(0, .25*60) == 0:
-				ghosts += [PhaseGhost("images/Ball/ball.png",
-						  [random.randint(-3,3), random.randint(-3,3)],
-						  [random.randint(100, width-100), random.randint(100, height-100)])
-						  ]
-				print ghosts[-1].rect.center
-		player.update(width, height)
-		for vision in visions:
-			vision.update()
-		
-		for ghost in ghosts:
-			ghost.update(width, height)
-			
-		for player in players:
-			for ghost in ghosts:
-				player.collideGhost(ghost)
-				ghost.collidePlayer(player)
-		
-		for player in players:
-			if not player.living:
-					players.remove(player)
-		
+                
+                
+            
+        if len(ghosts) < 10:
+            if random.randint(0, .25*60) == 0:
+                ghosts += [PhaseGhost("images/Ball/ball.png",
+                          [random.randint(-3,3), random.randint(-3,3)],
+                          [random.randint(100, width-100), random.randint(100, height-100)])
+                          ]
+                print ghosts[-1].rect.center
+        player.update(width, height)
+        for vision in visions:
+            vision.update()
+        
+        for ghost in ghosts:
+            ghost.update(width, height)
+            
+        for player in players:
+            for ghost in ghosts:
+                player.collideGhost(ghost)
+                ghost.collidePlayer(player)
+        
+        for player in players:
+            if not player.living:
+                    players.remove(player)
+        
 		for wall in walls:
 			player.collideWall(wall)
 		
