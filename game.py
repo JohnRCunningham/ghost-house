@@ -26,7 +26,7 @@ screen = pygame.display.set_mode(size)
 
 timer = Score([80, height - 25], "Time: ", 36)
 timerWait = 0
-timerWaitMax = 6
+timerWaitMax = 6000
 
 run = False
 options = False
@@ -120,7 +120,7 @@ while True:
                 
                 
             
-        if len(ghosts) < 5:
+        if len(ghosts) < 20:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
                           [random.randint(-3,3), random.randint(-3,3)],
