@@ -34,6 +34,7 @@ class PhaseGhost():
         self.rect.center = pos
         
     def update(self, width, height):
+        self.changed = True
         self.didBounceX = False
         self.didBounceY = False
         self.speed = [self.speedx, self.speedy]

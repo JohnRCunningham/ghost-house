@@ -128,7 +128,7 @@ while True:
                 
                 
             
-        if len(ghosts) < 10:
+        if len(ghosts) < 5:
             if random.randint(0, .25*60) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
                           [random.randint(-3,3), random.randint(-3,3)],
