@@ -71,11 +71,8 @@ walls = [Wall([0,0],[90,800]),
          Wall([554,227],[574,373]),
          Wall([427,227],[574,246]),
          Wall([427,502],[525,524]),
-         Wall([502,427],[525,524]),
-         Wall([427,275],[525,298]),
-         Wall([276,275],[372,298]),
-         Wall([276,275],[298,373]),
-         Wall{[277,427],[298,524])]
+         Wall([502,427],[525,524])]
+         
 
 startButton = Button([width/2, height-550], 
                      "Resources/Objects/startButton.png", 
@@ -134,7 +131,7 @@ while True:
                 
                 
             
-        if len(ghosts) < 20:
+        if len(ghosts) < 10:
             if random.randint(0, .25*100) == 0:
                 ghosts += [PhaseGhost("images/Ball/ball.png",
                           [random.randint(-2,2), random.randint(-2,2)],
