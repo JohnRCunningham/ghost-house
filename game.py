@@ -131,7 +131,8 @@ while True:
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     players[0].go("stop down")
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                    players[0].go("stop left")
+                        
+                        players[0].go("stop left")
                 #if event.key == pygame.K_SPACE:
                     #not screen.blit(vision.image, vision.rect)
                 
