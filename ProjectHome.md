@@ -1,0 +1,3 @@
+Ghost House is a game much like pacman where you are one of a few pax going around the level absorbing energy and dodging ghosts. Each pax is a little different and each ghost is a little different. To beat the level you survive through the time limit then proceed to the exit. A ghost can not been seen as a general rule unless it is directly in front of you or close behind you. The two exceptions are the blind pax and the radar pax who each have a perk to aid in seeing the ghosts. You as a player have 1 minute and 3 lives. As you progress through the levels more ghosts show up and in higher density, also the time goes up as you get to higher levels.
+
+https://docs.google.com/a/kearsarge.org/document/d/1TRpTi58wNlBDz1_gTsfMzmp2a6J7wq6H_C6w0i2qKXk/edit#
