@@ -37,11 +37,14 @@ playerType = "Pax"
 mapImage = pygame.image.load("Resources/Maps/Maplv1.png").convert()
 mapRect = mapImage.get_rect()
 
-bgImage = pygame.image.load("Resources/Objects/download.png").convert()
+bgImage = pygame.image.load("Resources/Objects/download3 (2).png").convert()
 bgRect = bgImage.get_rect()
 
 ghosts = []
-
+SpeedWalls = [Wall([267,373],[298,427]),
+                Wall([373,502],[427,524]),
+                Wall([502,373],[525,427]),
+                Wall([372,275],[427,298])]
 walls = [Wall([0,0],[90,800]),
          Wall([710,100],[800,800]),
          Wall([0,0], [800,90]),
@@ -164,6 +167,12 @@ while True:
         
         for wall in walls:
             player.collideWall(wall)
+        
+        for wall in SpeedWalls:
+            player.collideSpeed(wall)
+        
+        for wall in SpeedWalls:
+            screen.blit(wall.image, wall.rect)
         
         for wall in walls:
             screen.blit(wall.image, wall.rect)
