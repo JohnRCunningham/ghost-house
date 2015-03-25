@@ -48,15 +48,15 @@ class Pax(PhaseGhost):
         if self.rect.right > wall.rect.left and self.rect.left < wall.rect.right:
             if self.rect.bottom > wall.rect.top and self.rect.top < wall.rect.bottom:
                 if not self.didBounceX and self.speedx != 0:
-                    self.speedx = -self.speedx*1.5
+                    self.speedx = -self.speedx*1.01
                     self.move()
-                    self.speedx *= -1.2
+                    self.speedx *= -1.1
                     print "x"
                     self.didBouncex = True
                 if not self.didBounceY and self.speedy != 0:
-                    self.speedy = -self.speedy*1.5
+                    self.speedy = -self.speedy*1.01
                     self.move()
-                    self.speedy *= -1.2
+                    self.speedy *= -1.1
                     print "y"
                     self.didBounceY = True
                     print "hit Ball"
